@@ -28,14 +28,6 @@ export function OnBoarding() {
     const totalMissions = missions.length;
     const progress = (completedMissions / totalMissions) * 100;
 
-    const toggleMissionStatus = (id: string) => {
-        setMissions((prevMissions) =>
-            prevMissions.map((mission) =>
-                mission.id === id ? { ...mission, status: mission.status === 'completed' ? 'pending' : 'completed' } : mission,
-            ),
-        );
-    };
-
     return (
         <S.Container>
             <S.Wrapper>
@@ -47,7 +39,7 @@ export function OnBoarding() {
                     <S.BreadcrumbLink href='/'>Início</S.BreadcrumbLink>
                 </S.Breadcrumb>
 
-                <MissionList missions={missions} onToggleStatus={toggleMissionStatus} />
+                <MissionList missions={missions} />
 
                 <S.ProgressSection>
                     <S.ProgressHeader>

@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 import { 
     CheckCircledIcon, 
-    PlusCircledIcon, 
-    Cross2Icon 
+    PlusCircledIcon,
+    UpdateIcon
 } from '@radix-ui/react-icons';
 
 const MissionListContainer = styled.div`
@@ -66,18 +66,20 @@ const StatusButton = styled.button`
 `;
 
 const StatusPlaceholder = styled.div`
-    width: 4rem;
+    width: 6.5rem;
     height: 2.5rem;
     background-color: ${({ theme }) => theme.colors.muted};
     border-radius: ${({ theme }) => theme.radii.md};
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s;
-    
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.border};
-    };
+    gap: ${({ theme }) => theme.space[1]};
+`;
+
+const StatusText = styled.span`
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    font-weight: ${({ theme }) => theme.fontWeights.medium};
+    color: ${({ theme }) => theme.colors.mutedForeground};
 `;
 
 const CompletedIconWrapper = styled.div`
@@ -87,44 +89,12 @@ const CompletedIconWrapper = styled.div`
     align-items: center;
     justify-content: center;
     position: relative;
-
-    &:hover {
-        .remove-icon {
-            opacity: 1;
-        };
-        .completed-icon {
-            opacity: 0;
-        };
-    };
-`;
-
-const RemoveIcon = styled(Cross2Icon)`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1.25rem;
-    height: 1.25rem;
-    color: ${({ theme }) => theme.colors.destructive};
-    opacity: 0;
-    transition: all 0.2s;
-    z-index: 1;
-
-    ${CompletedIconWrapper}:hover & {
-        opacity: 1;
-    };
 `;
 
 const CompletedIcon = styled(CheckCircledIcon)`
     width: 1.5rem;
     height: 1.5rem;
     color: ${({ theme }) => theme.colors.secondary};
-    transition: opacity 0.2s;
-    opacity: 1;
-
-    ${CompletedIconWrapper}:hover & {
-        opacity: 0;
-    };
 `;
 
 const PendingIcon = styled(PlusCircledIcon)`
@@ -133,11 +103,10 @@ const PendingIcon = styled(PlusCircledIcon)`
     color: ${({ theme }) => theme.colors.primary};
 `;
 
-const StatusText = styled.span`
-    font-size: ${({ theme }) => theme.fontSizes.xs};
-    color: ${({ theme }) => theme.colors.mutedForeground};
-    margin-top: ${({ theme }) => theme.space[1]};
-    text-align: center;
+const LoadingIcon = styled(UpdateIcon)`
+    width: 1rem;
+    height: 1rem;
+    color: ${({ theme }) => theme.colors.primary};
 `;
 
 export {
@@ -151,8 +120,8 @@ export {
     StatusButton,
     StatusPlaceholder,
     CompletedIconWrapper,
-    RemoveIcon,
     CompletedIcon,
     PendingIcon,
+    LoadingIcon,
     StatusText,
 };

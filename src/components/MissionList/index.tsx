@@ -8,10 +8,9 @@ import {
 
 interface MissionListProps {
     missions: Mission[];
-    onToggleStatus: (id: string) => void;
 };
 
-export function MissionList({ missions, onToggleStatus }: MissionListProps) {
+export function MissionList({ missions }: MissionListProps) {
     return (
         <S.MissionListContainer>
             {missions.map((mission) => (
@@ -25,21 +24,17 @@ export function MissionList({ missions, onToggleStatus }: MissionListProps) {
                         </S.MissionInfo>
 
                         <S.StatusButton
-                            onClick={() => onToggleStatus(mission.id)}
                             aria-label={mission.status === 'completed' ? 'Mark as pending' : 'Mark as completed'}
                         >
                             {mission.status === 'completed' ? (
                                 <S.CompletedIconWrapper>
                                     <S.CompletedIcon className='completed-icon' />
-                                    <S.RemoveIcon className='remove-icon' />
                                 </S.CompletedIconWrapper>
                             ) : (
-                                <>
-                                    <S.StatusPlaceholder>
-                                        <S.PendingIcon />
-                                    </S.StatusPlaceholder>
-                                    <S.StatusText>Completar</S.StatusText>
-                                </>
+                                <S.StatusPlaceholder>
+                                    <S.LoadingIcon />
+                                    <S.StatusText>Pendente</S.StatusText>
+                                </S.StatusPlaceholder>
                             )}
                         </S.StatusButton>
                     </S.MissionContent>

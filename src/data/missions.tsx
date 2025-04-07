@@ -25,7 +25,7 @@ export const initialMissions: Mission[] = [
         iconBg: '#3B82F6',
         title: 'Cadastrar WhatsApp',
         description: 'Faça a integração do seu WhatsApp através do QR CODE',
-        status: 'pending',
+        status: 'completed',
     },
     {
         id: '3',
@@ -41,7 +41,7 @@ export const initialMissions: Mission[] = [
         iconBg: '#3B82F6',
         title: 'Crie seu Agente de IA',
         description: 'Crie seu primeiro e único agente de IA que poderá responder a todas as suas mensagens!',
-        status: 'pending',
+        status: 'completed',
     },
     {
         id: '5',
