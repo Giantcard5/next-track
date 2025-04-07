@@ -15,15 +15,14 @@ export const SidebarContainer = styled.div<SidebarContainerProps>`
     flex-direction: column;
     transition: width 0.3s ease;
     position: relative;
-    overflow-x: hidden; /* Prevent horizontal scrollbar */
 `;
 
 export const ToggleButton = styled.button`
     position: absolute;
     top: 1rem;
-    right: -1rem;
-    width: 2rem;
-    height: 2rem;
+    right: -.9rem;
+    width: 1.6rem;
+    height: 1.6rem;
     background-color: ${({ theme }) => theme.colors.white};
     border: 1px solid ${({ theme }) => theme.colors.border};
     border-radius: ${({ theme }) => theme.radii.full};
@@ -35,21 +34,17 @@ export const ToggleButton = styled.button`
     box-shadow: ${({ theme }) => theme.shadows.sm};
     
     svg {
-      width: 1rem;
-      height: 1rem;
-      color: ${({ theme }) => theme.colors.text.secondary};
+        width: .8rem;
+        height: .8rem;
+        color: ${({ theme }) => theme.colors.text.secondary};
     }
     
     &:hover {
-      background-color: ${({ theme }) => theme.colors.muted};
+        background-color: ${({ theme }) => theme.colors.muted};
     }
 `;
 
-interface LogoContainerProps {
-    $collapsed: boolean
-}
-
-export const LogoContainer = styled.div<LogoContainerProps>`
+export const LogoContainer = styled.div<{ $collapsed: boolean }>`
     padding: ${(props) => (props.$collapsed ? '1rem 0.5rem' : '1.5rem')};
     display: flex;
     justify-content: ${(props) => (props.$collapsed ? 'center' : 'flex-start')};
