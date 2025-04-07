@@ -1,7 +1,8 @@
 'use client'
 
 import {
-    useState
+    useState,
+    useEffect
 } from 'react';
 
 import {
@@ -34,15 +35,34 @@ const menuItems = [
 export function Sidebar() {
     const pathname = usePathname()
     const [collapsed, setCollapsed] = useState(false)
+    const [isSmallScreen, setIsSmallScreen] = useState(false)
     const [activeTooltip, setActiveTooltip] = useState<string | null>(null)
 
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsSmallScreen(window.innerWidth <= 768)
+            if (window.innerWidth <= 768) {
+                setCollapsed(true)
+            }
+        }
+
+        checkScreenSize()
+        window.addEventListener('resize', checkScreenSize)
+
+        return () => window.removeEventListener('resize', checkScreenSize)
+    }, [])
+
     const toggleSidebar = () => {
-        setCollapsed(!collapsed);
-    };
+        if (!isSmallScreen) {
+            setCollapsed(!collapsed)
+        }
+    }
 
     return (
         <S.SidebarContainer $collapsed={collapsed}>
-            <S.ToggleButton onClick={toggleSidebar}>{collapsed ? <HamburgerMenuIcon /> : <ChevronLeftIcon />}</S.ToggleButton>
+            {!isSmallScreen && (
+                <S.ToggleButton onClick={toggleSidebar}>{collapsed ? <HamburgerMenuIcon /> : <ChevronLeftIcon />}</S.ToggleButton>
+            )}
 
             <S.LogoContainer $collapsed={collapsed}>
                 {collapsed ? (

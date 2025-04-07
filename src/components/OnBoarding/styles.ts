@@ -6,6 +6,10 @@ const Container = styled.div`
     flex: 1;
     padding: ${({ theme }) => theme.space[8]};
     background-color: ${({ theme }) => theme.colors.background};
+
+    @media (max-width: 768px) {
+        padding: ${({ theme }) => theme.space[4]};
+    }
 `;
 
 const Wrapper = styled.div`
@@ -17,6 +21,11 @@ const Title = styled.h1`
     font-size: ${({ theme }) => theme.fontSizes["2xl"]};
     font-weight: ${({ theme }) => theme.fontWeights.bold};
     margin-bottom: ${({ theme }) => theme.space[2]};
+
+    @media (max-width: 768px) {
+        font-size: ${({ theme }) => theme.fontSizes.xl};
+        text-align: center;
+    }
 `;
 
 const Breadcrumb = styled.div`
@@ -25,6 +34,11 @@ const Breadcrumb = styled.div`
     font-size: ${({ theme }) => theme.fontSizes.sm};
     color: ${({ theme }) => theme.colors.text.secondary};
     margin-bottom: ${({ theme }) => theme.space[8]};
+
+    @media (max-width: 768px) {
+        justify-content: center;
+        margin-bottom: ${({ theme }) => theme.space[4]};
+    }
 `;
 
 const BreadcrumbSeparator = styled.span`

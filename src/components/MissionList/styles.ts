@@ -18,11 +18,22 @@ const MissionCard = styled.div`
     padding: ${({ theme }) => theme.space[6]};
     box-shadow: ${({ theme }) => theme.shadows.sm};
     border: 1px solid ${({ theme }) => theme.colors.border};
+
+    @media (max-width: 768px) {
+        padding: ${({ theme }) => theme.space[4]};
+    }
 `;
 
 const MissionContent = styled.div`
     display: flex;
     align-items: flex-start;
+    gap: ${({ theme }) => theme.space[4]};
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 `;
 
 const IconContainer = styled.div<{ $bgColor: string }>`
@@ -39,10 +50,19 @@ const IconContainer = styled.div<{ $bgColor: string }>`
     svg {
         color: white;
     };
+
+    @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: ${({ theme }) => theme.space[4]};
+    }
 `;
 
 const MissionInfo = styled.div`
     flex: 1;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 const MissionTitle = styled.h3`
@@ -63,6 +83,11 @@ const StatusButton = styled.button`
     align-items: center;
     justify-content: center;
     position: relative;
+
+    @media (max-width: 768px) {
+        margin-left: 0;
+        margin-top: ${({ theme }) => theme.space[4]};
+    }
 `;
 
 const StatusPlaceholder = styled.div`
