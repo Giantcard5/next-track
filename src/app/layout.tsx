@@ -6,7 +6,7 @@ import {
 
 import { 
     Layout 
-} from '@/components/layout';
+} from '@/components/Layout';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (

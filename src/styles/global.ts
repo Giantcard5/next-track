@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { theme } from '@/styles/theme';
-
 export default createGlobalStyle`
     * {
         box-sizing: border-box;
@@ -11,8 +9,8 @@ export default createGlobalStyle`
 
     body {
         font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-        color: ${theme.colors.text.primary};
-        background-color: ${theme.colors.white};
+        color: ${({ theme }) => theme.colors.text.primary};
+        background-color: ${({ theme }) => theme.colors.white};
     };
 
 	button {
