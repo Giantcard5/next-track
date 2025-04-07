@@ -14,9 +14,11 @@ export function MissionList({ missions }: MissionListProps) {
     return (
         <S.MissionListContainer>
             {missions.map((mission) => (
-                <S.MissionCard key={mission.id}>
+                <S.MissionCard key={mission.id} data-testid="mission-card">
                     <S.MissionContent>
-                        <S.IconContainer $bgColor={mission.iconBg}>{mission.icon}</S.IconContainer>
+                        <S.IconContainer $bgColor={mission.iconBg} data-testid={`mission-icon-${mission.id}`}>
+                            {mission.icon}
+                        </S.IconContainer>
 
                         <S.MissionInfo>
                             <S.MissionTitle>{mission.title}</S.MissionTitle>
@@ -25,6 +27,7 @@ export function MissionList({ missions }: MissionListProps) {
 
                         <S.StatusButton
                             aria-label={mission.status === 'completed' ? 'Mark as pending' : 'Mark as completed'}
+                            data-testid={`mission-status-${mission.id}`}
                         >
                             {mission.status === 'completed' ? (
                                 <S.CompletedIconWrapper>

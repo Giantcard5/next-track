@@ -59,12 +59,14 @@ export function Sidebar() {
     }
 
     return (
-        <S.SidebarContainer $collapsed={collapsed}>
+        <S.SidebarContainer $collapsed={collapsed} data-testid="sidebar-container">
             {!isSmallScreen && (
-                <S.ToggleButton onClick={toggleSidebar}>{collapsed ? <HamburgerMenuIcon /> : <ChevronLeftIcon />}</S.ToggleButton>
+                <S.ToggleButton onClick={toggleSidebar} data-testid="sidebar-toggle">
+                    {collapsed ? <HamburgerMenuIcon /> : <ChevronLeftIcon />}
+                </S.ToggleButton>
             )}
 
-            <S.LogoContainer $collapsed={collapsed}>
+            <S.LogoContainer $collapsed={collapsed} data-testid="sidebar-logo">
                 {collapsed ? (
                     <S.LogoIcon>N</S.LogoIcon>
                 ) : (
@@ -75,7 +77,7 @@ export function Sidebar() {
                 )}
             </S.LogoContainer>
 
-            <S.Nav $collapsed={collapsed}>
+            <S.Nav $collapsed={collapsed} data-testid="sidebar-nav">
                 <S.NavList>
                     {menuItems.map((item) => {
                         const isActive = pathname === item.href
@@ -87,6 +89,7 @@ export function Sidebar() {
                                 onMouseEnter={() => collapsed && setActiveTooltip(item.name)}
                                 onMouseLeave={() => setActiveTooltip(null)}
                                 style={{ position: "relative" }}
+                                data-testid={`nav-item-${item.name.toLowerCase()}`}
                             >
                                 <S.NavLink href={item.href} $active={isActive} $collapsed={collapsed}>
                                     <S.IconWrapper $collapsed={collapsed}>
@@ -101,7 +104,7 @@ export function Sidebar() {
                 </S.NavList>
             </S.Nav>
 
-            <S.UserSection $collapsed={collapsed}>
+            <S.UserSection $collapsed={collapsed} data-testid="sidebar-user">
                 <S.UserContainer>
                     <S.UserAvatar>
                         <PersonIcon />

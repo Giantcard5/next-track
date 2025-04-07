@@ -8,13 +8,14 @@ interface ProgressBarProps {
 
 export function ProgressBar({ progress }: ProgressBarProps) {
     return (
-        <S.Container>
+        <S.Container data-testid="progress-bar-container">
             <S.Track
                 width={`${progress}%`}
                 role="progressbar"
                 aria-valuenow={progress}
                 aria-valuemin={0}
                 aria-valuemax={100}
+                data-testid="progress-bar-track"
             />
         </S.Container>
     );

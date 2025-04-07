@@ -29,11 +29,11 @@ export function OnBoarding() {
     const progress = (completedMissions / totalMissions) * 100;
 
     return (
-        <S.Container>
+        <S.Container data-testid="onboarding-container">
             <S.Wrapper>
-                <S.Title>Complete suas missões</S.Title>
+                <S.Title data-testid="onboarding-title">Complete suas missões</S.Title>
 
-                <S.Breadcrumb>
+                <S.Breadcrumb data-testid="onboarding-breadcrumb">
                     <span>Nexttrack</span>
                     <S.BreadcrumbSeparator>{'>'}</S.BreadcrumbSeparator>
                     <S.BreadcrumbLink href='/'>Início</S.BreadcrumbLink>
@@ -41,10 +41,10 @@ export function OnBoarding() {
 
                 <MissionList missions={missions} />
 
-                <S.ProgressSection>
+                <S.ProgressSection data-testid="progress-section">
                     <S.ProgressHeader>
                         <S.ProgressLabel>Progresso</S.ProgressLabel>
-                        <S.ProgressLabel>
+                        <S.ProgressLabel data-testid="progress-count">
                             {completedMissions}/{totalMissions} Completo
                         </S.ProgressLabel>
                     </S.ProgressHeader>
