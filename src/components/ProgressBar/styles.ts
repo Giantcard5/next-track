@@ -9,7 +9,13 @@ const Container = styled.div`
 `;
 
 const Track = styled.div<{ width: string }>`
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background: linear-gradient(
+        90deg,
+        ${({ theme }) => theme.colors.primary} 0%,
+        ${({ theme }) => theme.colors.secondary} 50%,
+        ${({ theme }) => theme.colors.primary} 100%
+    );
+    background-size: 200% 100%;
     height: 100%;
     border-radius: ${({ theme }) => theme.radii.full};
     transition: width 0.5s ease-in-out;
