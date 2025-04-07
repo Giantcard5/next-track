@@ -1,5 +1,11 @@
 import React from 'react';
 
+import { 
+    OnBoarding 
+} from '@/components/OnBoarding';
+
 export default function Home() {
-    return <div>HOME</div>
+    return (
+        <OnBoarding />
+    )
 };

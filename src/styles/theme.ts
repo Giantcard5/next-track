@@ -12,7 +12,12 @@ export const theme = {
             light: "#9CA3AF",
         },
         border: "#E5E7EB",
-        muted: "#F3F4F6",
+        muted: "#f1f5f9",
+        mutedForeground: "#64748b",
+        accent: "#f1f5f9",
+        accentForeground: "#0f172a",
+        destructive: "#ef4444",
+        destructiveForeground: "#f8fafc",
     },
     fontSizes: {
         xs: "0.75rem",

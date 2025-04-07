@@ -16,6 +16,11 @@ declare module 'styled-components' {
             };
             border: string;
             muted: string;
+            mutedForeground: string;
+            accent: string;
+            accentForeground: string;
+            destructive: string;
+            destructiveForeground: string;
         };
         fontSizes: {
             xs: string;
