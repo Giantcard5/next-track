@@ -2,6 +2,8 @@
 
 O NextTrack é uma aplicação web moderna desenvolvida para gerenciar e acompanhar o progresso de missões e tarefas. A plataforma oferece uma interface intuitiva e responsiva, permitindo que os usuários visualizem e completem suas missões de forma eficiente.
 
+> ℹ️ Este projeto foi proposto e desenvolvido como parte de um processo seletivo técnico. Ele demonstra competências em desenvolvimento front-end com foco em boas práticas, responsividade e experiência do usuário.
+
 ## 🚀 Tecnologias Utilizadas
 
 - **Next.js 15**: Framework React para desenvolvimento web
